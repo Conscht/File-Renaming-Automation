@@ -29,15 +29,17 @@ while (True):
         counter = 0
         
         for file_name in files:
-            words = file_name.split('_')
-            if (len(words) == 4):
-                print(words)
-                counter =+ 1
-                new_name = exchange_value + '_' + words[2] + '.pdf'
-                new_path = os.path.join(folder_path, new_name)
-                old_path = os.path.join(folder_path, file_name)
-                os.rename(old_path, new_path)
-                print('Renamed file', file_name, 'into', new_name + '!')
+            if (file_name.endswith('.pdf')):
+                words = file_name.split('_')
+                if (len(words) == 4):
+                    counter =+ 1
+                    new_name = exchange_value + '_' + words[2] + '.pdf'
+                    new_path = os.path.join(folder_path, new_name)
+                    old_path = os.path.join(folder_path, file_name)
+                    os.rename(old_path, new_path)
+                    print('Renamed file', file_name, 'into', new_name + '!')
+                    time.sleep(0.1)
+
 
 
         if (counter >= 1):
