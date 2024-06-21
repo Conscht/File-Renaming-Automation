@@ -4,19 +4,18 @@ import time
 print('This is a simple tool to rename multiple files of a folder.')
 
 while (True):
+
     files = []
 
-    print('Please enter a folder path:')
-    folder_path = input('')
+    folder_path = input('Please enter a folder path:\n')
     time.sleep(1.5)
     print('Obtaining files...')
     time.sleep(1.5)
 
-    counter = 0
     try:
         for file in os.listdir(folder_path):
             if os.path.isfile(os.path.join(folder_path, file)):
-                print('Obtained file...', file, 'succesfully!')
+                print('Obtained file...', file, 'successfully!')
                 time.sleep(0.1)
                 files.append(file)
 
@@ -27,7 +26,8 @@ while (True):
         time.sleep(1.5)
         exchange_value = input('Enter re-name value:\n')
 
-
+        counter = 0
+        
         for file_name in files:
             words = file_name.split('_')
             if (len(words) == 4):
@@ -41,7 +41,7 @@ while (True):
 
 
         if (counter >= 1):
-            print('All', counter, 'files have been renamed succesfully!')
+            print('All', counter, 'files have been renamed successfully!')
 
         else:
             print('No files to rename detected!')
